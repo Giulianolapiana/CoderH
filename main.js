@@ -1,5 +1,8 @@
 // EJEMPLO DESAFÍO ENTREGABLE
 
+const contenedor =  document.getElementById('contenedor');
+contenedor.remove();
+
 const calcularViaje = () => {
     let viaje = '';
     let cantidad = 0;
@@ -8,7 +11,7 @@ const calcularViaje = () => {
     let seguirComprando = false;
 
     do {
-        viaje = prompt("¿Querés calcular el viaje a bodega: azul, o andeluna o ambos?", "Ej: ambos");
+        viaje = prompt("¿Querés calcular el viaje a bodega: azul, o andeluna o ambos? ", "Ej: ambos");
         cantidad = parseInt(prompt("¿Cuantas veces pensas visitar la bodega?"));
 
         let cantidadValidada = validarCantidad(cantidad);
