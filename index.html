@@ -7,10 +7,7 @@
     <title>JSproyect</title>
 </head>
 <body>
-    <h1>Java Script</h1>
-    <div id="contenedor">
-        <h2>hola mundo</h2>
-    </div>
+    <h1 class="">Java Script</h1>
     <div class="container">
         <div class="row border border-dark">
             <div class="col-md-5 col-lg-4 order-md-last">
@@ -43,6 +40,7 @@
                         <strong id="totalAmount">$0</strong>
                     </li>
                 </ul>
+                <button type="submit" class="btn btn-danger justify-content-center">ENVIAR</button>
             </div>
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">ingrese los datos para el prestamo</h4>
@@ -61,8 +59,24 @@
                             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                         </div>
                         <div class="col-12">
-                            <label for="email" class="form-label">a donde queres viajar</label>
-                            <input type="text" class="form-control" id="destino" placeholder="indique destino" name="email">
+                            <label for="email" class="form-label">A donde deseas viajar</label>
+<!--                             <input type="text" class="form-control" id="destino" placeholder="indique destino" name="email"> -->
+                            <div class="form-floating">
+                                <select type=" text" class="form-select" id="destino">
+                                    <option>Andeluna</option>
+                                    <option >Azul</option>
+                                    <option>Catena Zapata</option>
+                                    <option>Todas</option>
+                                </select>
+                                <label for="sel1" class="form-label" >Selecione una opcion</label>
+                            </div>
+                            <li class="list-group-item d-flex justify-content-between lh-sm ">
+                                <div>
+                                    <h6 class="my-0">monto del viaje</h6>
+                                </div>
+                                <span class="text-muted" id="montoViaje">$0</span>
+                            </li>
+                            <button type="submit" class="btn btn-info ">Ver Valor</button>
                         </div>
                         <div class="col-12">
                             <label for="amount" class="form-label">¿cuanto necesitas?</label>
@@ -83,7 +97,7 @@
                                 <input class="form-check-input" type="checkbox" name="remember"> Remember me
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-danger ">ENVIAR</button>
+                        <button type="submit" class="btn btn-danger ">SUMAR</button>
                         <hr class="my-4">
                     </div>
                 </form>

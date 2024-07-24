@@ -5,10 +5,12 @@ const cuotaFinal = document.querySelector("#finalFees");
 const intereses = document.querySelector("#interests");
 const totalADevolver = document.querySelector("#totalAmount");
 const destino = document.querySelector("#destino");
+const montoViaje = document.querySelector("#montoViaje");
 
 
 const formulario = document.querySelector("#form");
 const tasa = 0.01;
+
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -45,23 +47,28 @@ const pintarPrestamo = (prestamo) => {
 };
 
 const indicarDestino = (destino) => {
+    let precio = 0;
     switch (destino.value) {
-        case "andeluna":
+        case "Andeluna":
             precio = 50000;
             break;
-        case "azul":
+        case "Azul":
             precio = 25000;
             break;
-        case "catena":
+        case "Catena Zapata":
             precio = 35000;
             break;
-        case "todos":
+        case "Todos":
             precio = 100000;
             break;
         default:
             precio = 0;
             cantidad = 0;
     }
-    console.log(precio);
-    console.log(destino.value);
+    montoViaje.textContent = `$ ${precio}`;
 };
+
+/* const pintarViaje = (precio) => {
+    montoViaje.textContent = `$ ${precio}`;
+    console.log(precio)
+}; */
