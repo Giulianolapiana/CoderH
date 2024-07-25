@@ -14,11 +14,15 @@ const tasa = 0.01;
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const montoPrestamo = monto.value;
+    /* indicarDestino(destino); */
+    /* const precioViaje = (indicarDestino(destino)); */
+
+    const montoPrestamo = (indicarDestino(destino));
+    console.log(montoPrestamo);
     const numeroCuotas = cuotas.value;
 
     obtenerCuotasPrestamo(montoPrestamo,numeroCuotas);
-    indicarDestino(destino);
+    /* console.log(precioViaje); */
     /* console.log(monto.value);
     console.log(cuotas.value); */
 });
@@ -58,7 +62,7 @@ const indicarDestino = (destino) => {
         case "Catena Zapata":
             precio = 35000;
             break;
-        case "Todos":
+        case "Todas":
             precio = 100000;
             break;
         default:
@@ -66,9 +70,13 @@ const indicarDestino = (destino) => {
             cantidad = 0;
     }
     montoViaje.textContent = `$ ${precio}`;
+    return precio
 };
 
-/* const pintarViaje = (precio) => {
-    montoViaje.textContent = `$ ${precio}`;
-    console.log(precio)
-}; */
+
+
+document.getElementById('boton1').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    indicarDestino(destino);
+});
+
