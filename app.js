@@ -1,4 +1,3 @@
-const monto = document.querySelector("#amount");
 const cuotas = document.querySelector("#fees");
 const montoFinal = document.querySelector("#finalAmount");
 const cuotaFinal = document.querySelector("#finalFees");
@@ -7,24 +6,19 @@ const totalADevolver = document.querySelector("#totalAmount");
 const destino = document.querySelector("#destino");
 const montoViaje = document.querySelector("#montoViaje");
 
-
 const formulario = document.querySelector("#form");
-const tasa = 0.01;
+const tasa = 0.06;
+
+const getRamdomId = () => {
+    return Math.floor(Math.random() * Date.now()).toString(16)
+};
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    /* indicarDestino(destino); */
-    /* const precioViaje = (indicarDestino(destino)); */
-
     const montoPrestamo = (indicarDestino(destino));
-    console.log(montoPrestamo);
     const numeroCuotas = cuotas.value;
 
     obtenerCuotasPrestamo(montoPrestamo,numeroCuotas);
-    /* console.log(precioViaje); */
-    /* console.log(monto.value);
-    console.log(cuotas.value); */
 });
 
 const obtenerCuotasPrestamo = (monto, cuota) => {
@@ -33,14 +27,27 @@ const obtenerCuotasPrestamo = (monto, cuota) => {
 };
 
 const obtenerTotal = (cuotaPrestamo, cuota) => {
-    const total = Math.ceil(cuotaPrestamo) * cuota;
-    const prestamo ={
-        monto: monto.value,
-        cuotas: cuotas.value,
-        intereses: total - monto.value,
-        totalPrestamo: total
+    if (cuota <= 0) {
+        const montoTotalViaje = (indicarDestino(destino));
+        const prestamo ={
+            monto: montoTotalViaje,
+            cuotas: 0,
+            intereses: 0,
+            totalPrestamo: montoTotalViaje
     };
     pintarPrestamo(prestamo);
+    } else {
+        const total = Math.ceil(cuotaPrestamo) * cuota;
+        const montoTotalViaje = (indicarDestino(destino));
+        const prestamo ={
+            monto: montoTotalViaje,
+            cuotas: cuotas.value,
+            intereses: total - montoTotalViaje,
+            totalPrestamo: total
+    };
+    pintarPrestamo(prestamo);
+    }
+    
 };
 
 const pintarPrestamo = (prestamo) => {
@@ -74,9 +81,16 @@ const indicarDestino = (destino) => {
 };
 
 
-
 document.getElementById('boton1').addEventListener('click', function(event) {
     event.preventDefault(); 
     indicarDestino(destino);
 });
+
+const createTask = (taskId, taskNombre, taskApellido) => {
+    return {
+        id: taskId,
+        nombre: taskNombre,
+        apellido: taskApellido
+    }
+};
 

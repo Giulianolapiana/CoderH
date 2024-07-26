@@ -1,4 +1,4 @@
-// EJEMPLO DESAFÍO ENTREGABLE
+
 
 const contenedor =  document.getElementById('contenedor');
 contenedor.remove();
